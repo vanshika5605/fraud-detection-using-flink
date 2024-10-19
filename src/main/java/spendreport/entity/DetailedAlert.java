@@ -1,4 +1,4 @@
-package spendreport.models;
+package spendreport.entity;
 
 import org.apache.flink.walkthrough.common.entity.Alert;
 
