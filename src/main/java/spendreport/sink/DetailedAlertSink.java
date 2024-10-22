@@ -1,4 +1,4 @@
-package spendreport;
+package spendreport.sink;
 
 import org.apache.flink.annotation.PublicEvolving;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;

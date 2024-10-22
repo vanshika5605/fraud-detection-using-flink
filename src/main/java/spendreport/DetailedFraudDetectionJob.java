@@ -4,6 +4,7 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import spendreport.entity.DetailedAlert;
 import spendreport.entity.DetailedTransaction;
+import spendreport.sink.DetailedAlertSink;
 import spendreport.source.DetailedTransactionSource;
 
 public class DetailedFraudDetectionJob {
