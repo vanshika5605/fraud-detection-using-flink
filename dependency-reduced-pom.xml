@@ -187,6 +187,12 @@
       <version>2.17.1</version>
       <scope>runtime</scope>
     </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.34</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <properties>
     <scala.binary.version>2.12</scala.binary.version>

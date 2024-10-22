@@ -1,2 +1,11 @@
+spendreport\source\DetailedTransactionSource$RateLimitedIterator.class
+spendreport\DetailedAlertSink.class
 spendreport\FraudDetector.class
+spendreport\source\DetailedTransactionIterator.class
+spendreport\DetailedFraudDetector.class
+spendreport\entity\DetailedTransaction.class
 spendreport\FraudDetectionJob.class
+spendreport\source\DetailedTransactionSource$1.class
+spendreport\source\DetailedTransactionSource.class
+spendreport\DetailedFraudDetectionJob.class
+spendreport\entity\DetailedAlert.class

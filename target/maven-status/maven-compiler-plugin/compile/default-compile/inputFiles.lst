@@ -1,2 +1,9 @@
 D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\FraudDetector.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\DetailedAlertSink.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\source\DetailedTransactionIterator.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\DetailedFraudDetectionJob.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\DetailedFraudDetector.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\entity\DetailedAlert.java
 D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\FraudDetectionJob.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\source\DetailedTransactionSource.java
+D:\UMass\532\Assignment 3\frauddetection\src\main\java\spendreport\entity\DetailedTransaction.java

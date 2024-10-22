@@ -26,4 +26,20 @@ public class DetailedTransaction {
     public void setTimestamp(long timestamp) {
         this.transaction.setTimestamp(timestamp);
     }
+
+    public double getAmount() {
+        return transaction.getAmount();
+    }
+
+    public void setAmount(double amount) {
+        this.transaction.setAmount(amount);
+    }
+
+    public long getAccountId() {
+        return transaction.getAccountId();
+    }
+
+    public void setAccountId(long accountId) {
+        this.transaction.setAccountId(accountId);
+    }
 }
