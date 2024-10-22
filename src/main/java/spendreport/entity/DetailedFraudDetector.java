@@ -19,9 +19,12 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
     private static final long ONE_MINUTE = 60 * 1000; // 1 minute window
 
     // State to hold information about the last small transaction amount for each account
+    //  declares a private, transient field that stores the last small transaction for each account in the form of a 
+    // ValueState object, where the state will contain a DetailedTransaction.
     private transient ValueState<DetailedTransaction> lastSmallTransactionState;
 
     @Override
+    // initialize the state that will be used to store information about small transactions.
     public void open(org.apache.flink.configuration.Configuration parameters) throws Exception {
         ValueStateDescriptor<DetailedTransaction> descriptor = new ValueStateDescriptor<>(
             "last-small-transaction", // State name
