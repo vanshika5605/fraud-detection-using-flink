@@ -3,7 +3,6 @@ package spendreport.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.flink.walkthrough.common.entity.Transaction;
 
 import java.util.Objects;
 

@@ -2,6 +2,7 @@ package spendreport;
 
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
+import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.KeyedProcessFunction;
 import org.apache.flink.util.Collector;
 import spendreport.entity.DetailedAlert;
@@ -13,10 +14,11 @@ import spendreport.entity.DetailedTransaction;
  * with the same zip code within a short period of time.
  */
 public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTransaction, DetailedAlert> {
+    private static final long serialVersionUID = 1L;
 
     private static final double SMALL_AMOUNT = 1.00;
     private static final double LARGE_AMOUNT = 500.00;
-    private static final long ONE_MINUTE = 60 * 1000; // 1 minute window
+    private static final long ONE_MINUTE = 60 * 1000;
 
     // State to hold information about the last small transaction amount for each account
     //  declares a private, transient field that stores the last small transaction for each account in the form of a 
@@ -25,7 +27,7 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
 
     @Override
     // initialize the state that will be used to store information about small transactions.
-    public void open(org.apache.flink.configuration.Configuration parameters) throws Exception {
+    public void open(Configuration parameters) throws Exception {
         ValueStateDescriptor<DetailedTransaction> descriptor = new ValueStateDescriptor<>(
             "last-small-transaction", // State name
             DetailedTransaction.class // State type
@@ -43,12 +45,11 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
         DetailedTransaction lastSmallTransaction = lastSmallTransactionState.value();
 
         if (lastSmallTransaction != null) {
-            // Check if the current transaction is large and within 1 minute
+            // Check if the current transaction is large
             boolean isLargeTransaction = transaction.getAmount() >= LARGE_AMOUNT;
-            boolean withinTimeWindow = (transaction.getTimestamp() - lastSmallTransaction.getTimestamp()) < ONE_MINUTE;
             boolean sameZipCode = transaction.getZipCode().equals(lastSmallTransaction.getZipCode());
 
-            if (isLargeTransaction && withinTimeWindow && sameZipCode) {
+            if (isLargeTransaction && sameZipCode) {
                 // Fraud detected: create and emit an alert
                 DetailedAlert alert = new DetailedAlert(
                     transaction.getAccountId(),
