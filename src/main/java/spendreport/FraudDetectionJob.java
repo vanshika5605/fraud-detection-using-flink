@@ -36,10 +36,15 @@ public class FraudDetectionJob {
 			.addSource(new TransactionSource())
 			.name("transactions");
 
-		DataStream<Alert> alerts = transactions
-			.keyBy(Transaction::getAccountId)
-			.process(new FraudDetector())
-			.name("fraud-detector");
+		// DataStream<Alert> alerts = transactions
+		// 	.keyBy(Transaction::getAccountId)
+		// 	.process(new FraudDetector())
+		// 	.name("fraud-detector");
+
+		DataStream<DetailedAlert> alerts = transactions
+    		.keyBy(DetailedTransaction::getAccountId)
+    		.process(new DetailedFraudDetector())  // Use the new fraud detector
+    		.name("detailed-fraud-detector");
 
 		alerts
 			.addSink(new AlertSink())
