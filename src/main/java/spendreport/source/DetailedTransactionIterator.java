@@ -2,13 +2,14 @@ package spendreport.source;
 
 import spendreport.entity.DetailedTransaction;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-class DetailedTransactionIterator implements Iterator<DetailedTransaction> {
+class DetailedTransactionIterator implements Iterator<DetailedTransaction>, Serializable {
     private static final long serialVersionUID = 1L;
     private static final Timestamp INITIAL_TIMESTAMP = Timestamp.valueOf("2019-01-01 00:00:00");
     private static final long SIX_MINUTES = 360000L;

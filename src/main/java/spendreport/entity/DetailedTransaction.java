@@ -2,44 +2,36 @@ package spendreport.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.flink.walkthrough.common.entity.Transaction;
 
+import java.util.Objects;
+
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 public class DetailedTransaction {
-    private Transaction transaction;
+    private long accountId;
+    private long timestamp;
+    private double amount;
     private String zipCode;
 
-    public DetailedTransaction(long accountId, long timestamp, double amount, String zipCode) {
-        this.transaction = new Transaction(accountId, timestamp, amount);
-        this.zipCode = zipCode;
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (o != null && this.getClass() == o.getClass()) {
+            DetailedTransaction that = (DetailedTransaction) o;
+            return this.accountId == that.accountId && this.timestamp == that.timestamp && Double.compare(that.amount, this.amount) == 0 && Objects.equals(this.zipCode, that.zipCode);
+        } else {
+            return false;
+        }
     }
 
-    public long getTimestamp() {
-        return transaction.getTimestamp();
+    public int hashCode() {
+        return Objects.hash(new Object[]{this.accountId, this.timestamp, this.amount, this.zipCode});
     }
 
-    public void setTimestamp(long timestamp) {
-        this.transaction.setTimestamp(timestamp);
-    }
-
-    public double getAmount() {
-        return transaction.getAmount();
-    }
-
-    public void setAmount(double amount) {
-        this.transaction.setAmount(amount);
-    }
-
-    public long getAccountId() {
-        return transaction.getAccountId();
-    }
-
-    public void setAccountId(long accountId) {
-        this.transaction.setAccountId(accountId);
+    public String toString() {
+        return "DetailedTransaction{accountId=" + this.accountId + ", timestamp=" + this.timestamp + ", amount=" + this.amount + ",zipCode=" + this.zipCode +'}';
     }
 }

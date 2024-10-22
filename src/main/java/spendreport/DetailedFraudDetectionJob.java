@@ -2,7 +2,6 @@ package spendreport;
 
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.walkthrough.common.sink.AlertSink;
 import spendreport.entity.DetailedAlert;
 import spendreport.entity.DetailedTransaction;
 import spendreport.source.DetailedTransactionSource;
