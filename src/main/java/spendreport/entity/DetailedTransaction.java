@@ -13,6 +13,7 @@ public class DetailedTransaction {
     private long accountId;
     private long timestamp;
     private double amount;
+    // added zipcode as an additional field of information for the transactions
     private String zipCode;
 
     public boolean equals(Object o) {

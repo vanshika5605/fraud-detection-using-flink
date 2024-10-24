@@ -19,6 +19,7 @@ class DetailedTransactionIterator implements Iterator<DetailedTransaction>, Seri
     private final Random random = new Random();
     private static final String[] ZIP_CODES = {"01003", "02115", "78712"};
 
+    //modified the static transaction list to use detailed transactions with an additional zip code field
     private static List<DetailedTransaction> data = Arrays.asList(
             new DetailedTransaction(1L, 0L, 188.23, null),
             new DetailedTransaction(2L, 0L, 374.79, null),
@@ -99,11 +100,13 @@ class DetailedTransactionIterator implements Iterator<DetailedTransaction>, Seri
     public DetailedTransaction next() {
         DetailedTransaction transaction = (DetailedTransaction) data.get(this.index++);
         transaction.setTimestamp(this.timestamp);
+        // assigns a random zipcode to each transaction
         transaction.setZipCode(randomZipCode());
         this.timestamp += SIX_MINUTES;
         return transaction;
     }
 
+    //function for randomly generating zip codes for each transaction out of the 3 provided
     private String randomZipCode() {
         return ZIP_CODES[random.nextInt(ZIP_CODES.length)];
     }

@@ -11,6 +11,7 @@ import java.util.Iterator;
 public class DetailedTransactionSource extends FromIteratorFunction<DetailedTransaction> {
     private static final long serialVersionUID = 1L;
 
+    //modified transaction source to use a new iterator which implements the logic for random zip code addition to transactions
     public DetailedTransactionSource() {
         super(new RateLimitedIterator<>(DetailedTransactionIterator.unbounded()));
     }

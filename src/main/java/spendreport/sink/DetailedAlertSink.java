@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spendreport.entity.DetailedAlert;
 
+//modified the class AlertSink to use the detailed version of the alert
 @PublicEvolving
 public class DetailedAlertSink implements SinkFunction<DetailedAlert> {
     private static final long serialVersionUID = 1L;

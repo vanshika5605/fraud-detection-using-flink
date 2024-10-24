@@ -20,9 +20,9 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
     private static final double LARGE_AMOUNT = 500.00;
     private static final long ONE_MINUTE = 60 * 1000;
 
-    // State to hold information about the last small transaction amount for each account
-    //  declares a private, transient field that stores the last small transaction for each account in the form of a 
-    // ValueState object, where the state will contain a DetailedTransaction.
+    //    State to hold information about the last small transaction amount for each account
+    //    declares a private, transient field that stores the last small transaction for each account in the form of a
+    //    ValueState object, where the state will contain a DetailedTransaction.
     private transient ValueState<DetailedTransaction> lastSmallTransactionState;
 
     @Override
@@ -54,8 +54,8 @@ public class DetailedFraudDetector extends KeyedProcessFunction<Long, DetailedTr
                 DetailedAlert alert = new DetailedAlert(
                     transaction.getAccountId(),
                     transaction.getTimestamp(),
-                    transaction.getZipCode(),
-                    transaction.getAmount()
+                    transaction.getAmount(),
+                    transaction.getZipCode()
                 );
                 collector.collect(alert);
                 // Clear the state after alerting

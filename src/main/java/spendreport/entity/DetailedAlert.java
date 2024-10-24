@@ -14,8 +14,9 @@ import java.util.Objects;
 public class DetailedAlert {
     private long id; //accountID?
     private long timestamp;
-    private String zipCode;
     private double amount;
+    // introducing zipcode for every alert to add extra information about the fraud
+    private String zipCode;
 
     public boolean equals(Object o) {
         if (this == o) {

@@ -1,5 +1,5 @@
+spendreport\sink\DetailedAlertSink.class
 spendreport\source\DetailedTransactionSource$RateLimitedIterator.class
-spendreport\DetailedAlertSink.class
 spendreport\FraudDetector.class
 spendreport\source\DetailedTransactionIterator.class
 spendreport\DetailedFraudDetector.class
